@@ -6,15 +6,15 @@ function Searchbar() {
       <input
         type="text"
         placeholder="Search"
-        className="bg-[#121212] placeholder:text-zinc-400 placeholder:font-normal border-zinc-700 border-[.1px] py-2 px-3 rounded-l-full w-[40vw] text-[1.25vw] outline-none focus:border-blue-600 focus:w-[42vw]"
+        className="bg-[#121212] placeholder:text-zinc-400 placeholder:font-normal border-zinc-700 border-[.1px] py-2 px-3 rounded-l-full w-[38vw] text-[1.25vw] outline-none focus:border-blue-600 focus:w-[42vw]"
       />
-      <button className="rounded-r-full bg-[#222222] border-zinc-700 border-[.1px] py-2 px-5 ml-[.1px]">
+      <button className="rounded-r-full bg-[#222222] border-zinc-700 border-[.1px] py-[.65vw] px-[1vw]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 24 24"
-          height="26"
           viewBox="0 0 24 24"
-          width="26"
+          height="24"
+          width="24"
           focusable="false"
           fill="#fff"
         >

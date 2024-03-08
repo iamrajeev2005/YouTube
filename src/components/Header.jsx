@@ -4,7 +4,7 @@ import Profilebuttons from "./Profilebuttons";
 
 function Header() {
   return (
-    <div className="px-6 flex items-center justify-between py-4">
+    <div className="px-6 flex items-center justify-between py-2">
       <div className="flex items-center gap-6">
         <div className="Menu-icon">
           <svg
@@ -48,7 +48,7 @@ function Header() {
               </g>
             </g>
           </svg>
-          <span className="text-zinc-400 text-[10px] block">IN</span>
+          <span className="text-zinc-400 text-[10px] block -mt-2">IN</span>
         </div>
       </div>
       <Searchbar />
