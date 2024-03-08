@@ -4,9 +4,9 @@ import Profilebuttons from "./Profilebuttons";
 
 function Header() {
   return (
-    <div className="px-6 flex items-center justify-between py-2">
+    <div className="px-5 flex items-center justify-between py-2">
       <div className="flex items-center gap-6">
-        <div className="Menu-icon">
+        <div className="Menu-icon hover:bg-zinc-800 rounded-full px-2 py-2 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24"
