@@ -5,6 +5,13 @@ import { MdSubscriptions } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { RiHistoryFill } from "react-icons/ri";
 import { RiVideoLine } from "react-icons/ri";
+import { MdOutlineWatchLater } from "react-icons/md";
+import { BiSolidLike } from "react-icons/bi";
+import { CiSettings } from "react-icons/ci";
+import { IoFlagOutline } from "react-icons/io5";
+import { IoIosHelpCircleOutline } from "react-icons/io";
+
+
 
 function Sidebar() {
   const [data, setData] = useState([]);
@@ -52,6 +59,36 @@ function Sidebar() {
       title: "Your videos",
       path: "/",
     },
+    {
+      id: 8,
+      icon: <MdOutlineWatchLater />,
+      title: "Watch later",
+      path: "/",
+    },
+    {
+      id: 9,
+      icon: <BiSolidLike />,
+      title: "Liked videos",
+      path: "/",
+    },
+    {
+      id: 10,
+      icon: <CiSettings />,
+      title: "Settings",
+      path: "/",
+    },
+    {
+      id: 11,
+      icon: <IoFlagOutline />,
+      title: "Report history",
+      path: "/",
+    },
+    {
+      id: 12,
+      icon: <IoIosHelpCircleOutline />,
+      title: "Help",
+      path: "/",
+    },
   ];
   useEffect(() => {
     setData(items);
@@ -63,24 +100,32 @@ function Sidebar() {
 
   return (
     <div className="h-fit w-[20%] flex flex-col items-center">
-      {data.map((item) => {
+      {data.map((item, index) => {
         return (
-          <div
-            key={item.id}
-            className={`flex items-center w-[80%] mx-auto gap-4 hover:bg-[#383838a9] rounded-lg px-3 py-2 cursor-pointer ${
-              activeItem === item.id ? "bg-[#393939a9]" : ""
-            }`}
-            onClick={() => handleClick(item.id)}
-          >
-            <div className="text-2xl">{item?.icon}</div>
-            <h2
-              className={`  ${
-                activeItem === item.id ? "font-semibold" : "font-normal"
+          <>
+            <div
+              key={item.id}
+              className={`flex items-center w-[80%] mx-auto gap-4 hover:bg-[#383838a9] rounded-lg px-3 py-2 cursor-pointer ${
+                activeItem === item.id ? "bg-[#393939a9]" : ""
               }`}
+              onClick={() => handleClick(item.id)}
             >
-              {item?.title}
-            </h2>
-          </div>
+              <div className="text-2xl">{item?.icon}</div>
+              <h2
+                className={`  ${
+                  activeItem === item.id ? "font-semibold" : "font-normal"
+                }`}
+              >
+                {item?.title}
+              </h2>
+            </div>
+            {index === 2 && (
+              <div className=" bg-zinc-600 h-[1px] w-[80%] my-3"></div>
+            )}
+            {index === 8 && (
+              <div className=" bg-zinc-600 h-[1px] w-[80%] my-3"></div>
+            )}
+          </>
         );
       })}
     </div>
