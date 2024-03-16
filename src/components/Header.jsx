@@ -10,7 +10,7 @@ function Header() {
     dispatch(toggleMenu());
   };
   return (
-    <div className="px-5 flex items-center justify-between py-2">
+    <div className="px-5 flex items-center justify-between py-2 sticky top-0 left-0 bg-[#0F0F0F]">
       <div className="flex items-center gap-6">
         <div
           onClick={() => toggleMenuHandler()}

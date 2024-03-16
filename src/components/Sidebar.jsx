@@ -15,7 +15,7 @@ import { useSelector } from "react-redux";
 import { BiSolidVideos } from "react-icons/bi";
 
 function Sidebar() {
-  const isMenuOpen = useSelector(store => store.toggle.isMenuOpen);
+  const isMenuOpen = useSelector((store) => store.toggle.isMenuOpen);
   const [data, setData] = useState([]);
   const [activeItem, setActiveitem] = useState(1);
 
@@ -101,9 +101,9 @@ function Sidebar() {
   };
 
   return (
-    <>
+    <React.Fragment>
       {isMenuOpen ? (
-        <div className="h-fit w-[20%] flex flex-col items-center">
+        <div className="h-fit w-[20%] flex flex-col items-center sticky top-16 bg-[#0F0F0F]">
           {data.map((item, index) => {
             return (
               <React.Fragment key={index}>
@@ -165,7 +165,7 @@ function Sidebar() {
           })}
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 }
 
