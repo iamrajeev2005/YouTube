@@ -30,7 +30,7 @@ function Header() {
         <div className="Yt-logo w-24 flex ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="external-icon"
+            className="external-icon"
             viewBox="0 0 90 20"
             focusable="false"
             fill="#fff"

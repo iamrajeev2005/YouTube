@@ -1,3 +1,4 @@
+import store from "../utils/store";
 import React, { useEffect, useState } from "react";
 import { MdHomeFilled } from "react-icons/md";
 import { SiYoutubeshorts } from "react-icons/si";
@@ -12,12 +13,11 @@ import { IoFlagOutline } from "react-icons/io5";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { BiSolidVideos } from "react-icons/bi";
-import store from "../utils/store";
 
 function Sidebar() {
+  const isMenuOpen = useSelector(store => store.toggle.isMenuOpen);
   const [data, setData] = useState([]);
   const [activeItem, setActiveitem] = useState(1);
-  const isMenuOpen = useSelector((store) => store.toggle.isMenuOpen);
 
   const items = [
     {
@@ -106,9 +106,8 @@ function Sidebar() {
         <div className="h-fit w-[20%] flex flex-col items-center">
           {data.map((item, index) => {
             return (
-              <>
+              <React.Fragment key={index}>
                 <div
-                  key={item.id}
                   className={`flex items-center w-[80%] mx-auto gap-4 hover:bg-[#383838a9] rounded-lg px-3 py-2 cursor-pointer ${
                     activeItem === item.id ? "bg-[#393939a9]" : ""
                   }`}
@@ -129,7 +128,7 @@ function Sidebar() {
                 {index === 8 && (
                   <div className=" bg-zinc-600 h-[1px] w-[80%] my-3"></div>
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </div>
@@ -139,7 +138,7 @@ function Sidebar() {
             return (
               <>
                 <div
-                  key={item.id}
+                  key={index}
                   className={`flex flex-col items-center w-[80%] mx-auto gap-2 hover:bg-[#383838a9] rounded-lg px-3 py-2 cursor-pointer ${
                     activeItem === item.id ? "bg-[#393939a9]" : ""
                   }`}

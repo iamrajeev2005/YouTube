@@ -11,7 +11,7 @@ function Searchbar() {
       <button className="rounded-r-full bg-[#222222] border-zinc-700 border-[.1px] py-[.65vw] px-[1vw]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          enable-background="new 0 0 24 24"
+          enableBackground="new 0 0 24 24"
           viewBox="0 0 24 24"
           height="24"
           width="24"
