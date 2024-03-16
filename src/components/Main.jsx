@@ -4,7 +4,7 @@ import Container from "./Container";
 
 function Main() {
   return (
-    <div className="flex w-screen">
+    <div className="flex w-fit h-fit">
       <Sidebar />
       <Container />
     </div>
