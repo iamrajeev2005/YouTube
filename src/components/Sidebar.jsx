@@ -10,12 +10,14 @@ import { BiSolidLike } from "react-icons/bi";
 import { CiSettings } from "react-icons/ci";
 import { IoFlagOutline } from "react-icons/io5";
 import { IoIosHelpCircleOutline } from "react-icons/io";
-
-
+import { useSelector } from "react-redux";
+import { BiSolidVideos } from "react-icons/bi";
+import store from "../utils/store";
 
 function Sidebar() {
   const [data, setData] = useState([]);
   const [activeItem, setActiveitem] = useState(1);
+  const isMenuOpen = useSelector((store) => store.toggle.isMenuOpen);
 
   const items = [
     {
@@ -99,36 +101,72 @@ function Sidebar() {
   };
 
   return (
-    <div className="h-fit w-[20%] flex flex-col items-center">
-      {data.map((item, index) => {
-        return (
-          <>
-            <div
-              key={item.id}
-              className={`flex items-center w-[80%] mx-auto gap-4 hover:bg-[#383838a9] rounded-lg px-3 py-2 cursor-pointer ${
-                activeItem === item.id ? "bg-[#393939a9]" : ""
-              }`}
-              onClick={() => handleClick(item.id)}
-            >
-              <div className="text-2xl">{item?.icon}</div>
-              <h2
-                className={`  ${
-                  activeItem === item.id ? "font-semibold" : "font-normal"
-                }`}
-              >
-                {item?.title}
-              </h2>
-            </div>
-            {index === 2 && (
-              <div className=" bg-zinc-600 h-[1px] w-[80%] my-3"></div>
-            )}
-            {index === 8 && (
-              <div className=" bg-zinc-600 h-[1px] w-[80%] my-3"></div>
-            )}
-          </>
-        );
-      })}
-    </div>
+    <>
+      {isMenuOpen ? (
+        <div className="h-fit w-[20%] flex flex-col items-center">
+          {data.map((item, index) => {
+            return (
+              <>
+                <div
+                  key={item.id}
+                  className={`flex items-center w-[80%] mx-auto gap-4 hover:bg-[#383838a9] rounded-lg px-3 py-2 cursor-pointer ${
+                    activeItem === item.id ? "bg-[#393939a9]" : ""
+                  }`}
+                  onClick={() => handleClick(item.id)}
+                >
+                  <div className="text-2xl">{item?.icon}</div>
+                  <h2
+                    className={`  ${
+                      activeItem === item.id ? "font-semibold" : "font-normal"
+                    }`}
+                  >
+                    {item?.title}
+                  </h2>
+                </div>
+                {index === 2 && (
+                  <div className=" bg-zinc-600 h-[1px] w-[80%] my-3"></div>
+                )}
+                {index === 8 && (
+                  <div className=" bg-zinc-600 h-[1px] w-[80%] my-3"></div>
+                )}
+              </>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="h-fit w-[6%] flex flex-col items-center">
+          {data.slice(0, 4).map((item, index) => {
+            return (
+              <>
+                <div
+                  key={item.id}
+                  className={`flex flex-col items-center w-[80%] mx-auto gap-2 hover:bg-[#383838a9] rounded-lg px-3 py-2 cursor-pointer ${
+                    activeItem === item.id ? "bg-[#393939a9]" : ""
+                  }`}
+                  onClick={() => handleClick(item.id)}
+                >
+                  <div className="text-xl">{item?.icon}</div>
+                  {index === 3 ? (
+                    <div className="text-xl">
+                      <BiSolidVideos />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <h2
+                    className={`text-xs  ${
+                      activeItem === item.id ? "font-semibold" : "font-normal"
+                    }`}
+                  >
+                    {item?.title}
+                  </h2>
+                </div>
+              </>
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 }
 

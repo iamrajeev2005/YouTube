@@ -1,12 +1,21 @@
 import React from "react";
 import Searchbar from "./Searchbar";
 import Profilebuttons from "./Profilebuttons";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/toggleSlice";
 
 function Header() {
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  };
   return (
     <div className="px-5 flex items-center justify-between py-2">
       <div className="flex items-center gap-6">
-        <div className="Menu-icon hover:bg-zinc-800 rounded-full px-2 py-2 cursor-pointer">
+        <div
+          onClick={() => toggleMenuHandler()}
+          className="Menu-icon hover:bg-zinc-800 rounded-full px-2 py-2 cursor-pointer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24"
