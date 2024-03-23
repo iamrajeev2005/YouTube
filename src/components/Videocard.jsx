@@ -17,16 +17,16 @@ function Videocard({ data }) {
     data && (
       <div className="w-[25vw] h-fit flex flex-col rounded-lg m-2 cursor-pointer">
         <img
-          className="w-[25vw] h-[15vw] rounded-lg object-cover"
+          className="w-[25vw] h-[14vw] rounded-lg object-cover"
           src={data?.snippet?.thumbnails?.high.url}
           alt=""
         />
-        <div className=" flex items-start py-4 gap-2">
-          <img
-            className="w-9 h-8 bg-green-600 rounded-full object-cover"
+        <div className="flex items-start justify-start py-4 gap-2">
+          {/* <img
+            className="bg-green-600 rounded-full object-cover"
             src=""
             alt=""
-          />
+          /> */}
           <div className="flex flex-col gap-1">
             <h1 className="text-md leading-tight font-semibold">
               {data?.snippet?.title.slice(0, 50)}
